@@ -4,7 +4,7 @@ pipeline {
         maven 'mvn'
         jdk 'JDK'
     }
-    //Author Murali Koneru
+    //Author Murali Koneru in feature/sprint1
     stages {
         stage ('Initialize') {
             steps {
