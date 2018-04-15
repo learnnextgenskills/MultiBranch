@@ -4,6 +4,7 @@ pipeline {
         maven 'mvn'
         jdk 'JDK'
     }
+    //Author Murali Koneru
     stages {
         stage ('Initialize') {
             steps {
@@ -15,14 +16,14 @@ pipeline {
         }
          stage ('Build') {
             steps {
-                sh '''cd TestMaven
+                sh '''
                 mvn -Dmaven.test.failure.ignore=true install
                 '''
             }
             post {
                 success {
                     sh 'echo $pwd'
-                    junit 'TestMaven/target/surefire-reports/TEST-udemy.AppTest.xml' 
+                    junit 'target/surefire-reports/TEST-udemy.AppTest.xml' 
                 }
             }
         }
