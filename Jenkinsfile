@@ -23,7 +23,7 @@ pipeline {
             post {
                 success {
                     sh 'echo $pwd'
-                    junit 'TestMaven/target/surefire-reports/TEST-udemy.AppTest.xml' 
+                    junit 'surefire-reports/TEST-udemy.AppTest.xml' 
                 }
             }
         }
@@ -47,7 +47,7 @@ pipeline {
                       def uploadSpec = """{
                         "files": [
                             {
-                             "pattern": "$WORKSPACE/TestMaven/target/*.jar",
+                             "pattern": "$WORKSPACE/target/*.jar",
                              "target": "libs-snapshot-local",
                              "flat": "false",
                              "recursive": "false"
