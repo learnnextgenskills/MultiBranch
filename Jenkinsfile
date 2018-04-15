@@ -4,7 +4,7 @@ pipeline {
         maven 'mvn'
         jdk 'JDK'
     }
-    //Author
+    //Author Murali
     stages {
         stage ('Initialize') {
             steps {
