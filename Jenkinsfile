@@ -10,7 +10,9 @@ pipeline {
 
     stages {
         stage ('checkout') {
+            steps {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Gihub Credentials', url: 'https://github.com/learnnextgenskills/MultiBranch.git']]])
+            }
         }
         stage ('Initialize') {
             steps {
