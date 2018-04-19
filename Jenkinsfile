@@ -50,20 +50,7 @@ pipeline {
             
              steps {
                           
-                  script {
-                      def server = Artifactory.server 'AF1'
-                      def uploadSpec = """{
-                        "files": [
-                            {
-                             "pattern": "$WORKSPACE/target/*.jar",
-                             "target": "libs-snapshot-local",
-                             "flat": "false",
-                             "recursive": "false"
-                                                         }
-                        ]
-                    }"""
-                      server.upload(uploadSpec)
-             }
+                  sh 'mvn deploy:deploy'
              }
          }
     }
